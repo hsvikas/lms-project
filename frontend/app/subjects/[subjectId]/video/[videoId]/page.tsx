@@ -14,14 +14,14 @@ export default function VideoPage() {
   const [watched, setWatched] = useState(false);
 
   useEffect(() => {
-    apiClient.get(`/videos/${videoId}`).then(res => setVideo(res.data));
-    apiClient.get(`/progress/${localStorage.getItem('userId')}`).then(res => {
+    apiClient.get(`/api/videos/${videoId}`).then(res => setVideo(res.data));
+    apiClient.get(`/api/progress/${localStorage.getItem('userId')}`).then(res => {
       setWatched(res.data.some((p: any) => p.video.id === parseInt(videoId)));
     });
   }, [videoId]);
 
   const handleProgress = async () => {
-    await apiClient.post(`/progress/${videoId}`);
+    await apiClient.post(`/api/progress/${videoId}`);
     setWatched(true);
   };
 
