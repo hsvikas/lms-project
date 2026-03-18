@@ -12,7 +12,7 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await apiClient.post('/auth/login', { email, password });
+      const res = await apiClient.post('/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.user.id);
       router.push('/');
