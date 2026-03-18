@@ -34,7 +34,7 @@ export default function RegisterPage() {
         onSubmit={handleRegister}
         className="bg-white shadow-2xl rounded-2xl p-10 w-full max-w-md z-10"
       >
-        <h2 className="text-4xl font-bold text-green-600 mb-2 text-center">
+        <h2 className="text-4xl font-bold text-blue-600 mb-2 text-center">
           SkillNest
         </h2>
 
@@ -77,7 +77,7 @@ export default function RegisterPage() {
 
         <button
           type="submit"
-          className="w-full bg-green-600 text-white p-3 rounded-lg font-semibold hover:bg-green-700 transition"
+          className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition"
         >
           Register
         </button>

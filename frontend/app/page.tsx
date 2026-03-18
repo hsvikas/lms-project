@@ -42,7 +42,7 @@ export default function HomePage() {
           <div className="flex gap-6 justify-center">
             <Link
               href="/register"
-              className="bg-green-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
+              className="bg-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
             >
               Start Learning
             </Link>
@@ -68,7 +68,7 @@ export default function HomePage() {
       <div className="max-w-7xl mx-auto px-8 py-16">
 
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-green-400 mb-3">
+          <h1 className="text-4xl font-bold text-blue-600 mb-3">
             Explore Courses
           </h1>
 
@@ -105,7 +105,7 @@ export default function HomePage() {
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
 
-                    <h2 className="text-xl font-bold mb-2 text-green-400">
+                    <h2 className="text-xl font-bold mb-2 text-blue-600">
                       {subject.title}
                     </h2>
 
@@ -124,7 +124,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <button className="bg-green-600 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+                    <button className="bg-blue-600 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
                       Start Learning →
                     </button>
 

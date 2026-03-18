@@ -13,7 +13,7 @@ export default function CoursePlaylist({
   return (
     <div className="mt-10 bg-gray-800 rounded-xl p-6">
 
-      <h2 className="text-2xl font-bold mb-6 text-green-400">
+      <h2 className="text-2xl font-bold mb-6 text-blue-600">
         📚 Course Playlist
       </h2>
 
@@ -36,7 +36,7 @@ export default function CoursePlaylist({
                     href={`/subjects/${subjectId}/video/${video.id}`}
                     className={`block px-4 py-2 rounded-lg transition ${
                       isCurrent
-                        ? "bg-green-600 text-white"
+                        ? "bg-blue-600 text-white"
                         : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                     }`}
                   >

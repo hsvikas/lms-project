@@ -18,7 +18,7 @@ export default function SubjectsPage() {
 
       {/* Header */}
       <h1 className="text-4xl font-bold text-white mb-10 text-center">
-        Explore Courses on <span className="text-green-400">SkillNest</span>
+        Explore Courses on <span className="text-blue-600">SkillNest</span>
       </h1>
 
       {/* Course Grid */}
@@ -47,7 +47,7 @@ export default function SubjectsPage() {
               {/* Course info */}
               <div className="text-sm text-gray-500 flex justify-between">
                 <span>📚 Course Content</span>
-                <span className="text-green-600 font-semibold">
+                <span className="text-blue-600 font-semibold">
                   Start Learning →
                 </span>
               </div>

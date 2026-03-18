@@ -32,7 +32,7 @@ export default function SubjectPage() {
       <div className="max-w-6xl mx-auto px-10 py-12">
 
         {/* Course Title */}
-        <h1 className="text-4xl font-bold text-green-400 mb-4">
+        <h1 className="text-4xl font-bold text-blue-600 mb-4">
           {subject.title}
         </h1>
 
@@ -77,7 +77,7 @@ export default function SubjectPage() {
                   <li key={video.id}>
                     <Link
                       href={`/subjects/${subjectId}/video/${video.id}`}
-                      className="block p-3 bg-gray-700 rounded hover:bg-green-600 transition"
+                      className="block p-3 bg-gray-700 rounded hover:bg-blue-600 transition"
                     >
                       🎬 {video.title}
                     </Link>

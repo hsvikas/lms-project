@@ -14,7 +14,7 @@ export default function ProgressBar({
         <span className="text-gray-300 font-medium">Lesson Progress</span>
 
         {watched && (
-          <span className="text-green-400 font-semibold">
+          <span className="text-blue-600 font-semibold">
             Completed ✓
           </span>
         )}

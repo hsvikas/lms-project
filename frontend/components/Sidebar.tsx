@@ -13,7 +13,7 @@ export default function Sidebar({ sections, subjectId }: { sections: any[]; subj
               <li key={video.id}>
                 <Link
                   href={`/subjects/${subjectId}/video/${video.id}`}
-                  className="block px-3 py-2 rounded hover:bg-green-50 hover:text-green-700 transition"
+                  className="block px-3 py-2 rounded hover:bg-green-50 hover:text-blue-600 transition"
                 >
                   {video.title}
                 </Link>

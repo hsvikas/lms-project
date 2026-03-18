@@ -41,7 +41,7 @@ export default function Navbar() {
             <>
               <Link
                 href="/subjects"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-blue-600 transition"
               >
                 Courses
               </Link>
@@ -57,14 +57,14 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="text-gray-300 hover:text-green-400 transition"
+                className="text-gray-300 hover:text-blue-600 transition"
               >
                 Login
               </Link>
 
               <Link
                 href="/register"
-                className="bg-green-600 px-5 py-2 rounded-lg font-semibold hover:bg-green-700 transition"
+                className="bg-blue-600 px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
               >
                 Register
               </Link>
