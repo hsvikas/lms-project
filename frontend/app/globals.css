@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
+/* Global styles */
 body {
   font-family: 'Inter', sans-serif;
-  background: #fff;
+  background-color: #f8fafc; /* soft light background */
+  color: #1e293b; /* dark text */
+}
+
+/* Blue primary color */
+.primary-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Yellow highlight button */
+.highlight-btn {
+  background-color: #facc15;
+  color: #1e3a8a;
+}
+
+/* Hover effects */
+.primary-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.highlight-btn:hover {
+  background-color: #fbbf24;
 }

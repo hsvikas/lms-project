@@ -39,40 +39,40 @@ export default function VideoPage() {
 
   if (!video) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
         Loading video...
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-50 pt-28">
 
       <div className="max-w-5xl mx-auto p-10">
 
         {/* Video Title */}
-        <h1 className="text-3xl font-bold mb-6 text-green-400">
+        <h1 className="text-3xl font-bold mb-6 text-blue-600">
           {video.title}
         </h1>
 
         {/* Video Player */}
-        <div className="bg-black rounded-xl overflow-hidden shadow-xl mb-6">
+        <div className="bg-white rounded-xl overflow-hidden shadow border mb-6">
           <VideoPlayer url={video.youtubeId} />
         </div>
 
         {/* Progress */}
-        <div className="bg-gray-800 p-4 rounded-lg mb-8">
+        <div className="bg-white p-4 rounded-lg mb-8 shadow border">
           <ProgressBar watched={watched} onMarkWatched={handleProgress} />
         </div>
 
         {/* Navigation */}
         <div className="flex gap-4 mb-10">
 
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
+          <button className="bg-yellow-400 text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
             ← Previous
           </button>
 
-          <button className="bg-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
             Next →
           </button>
 
