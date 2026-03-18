@@ -10,7 +10,7 @@ export default function SubjectPage() {
   const [subject, setSubject] = useState<any>(null);
 
   useEffect(() => {
-    apiClient.get(`/subjects/${subjectId}`).then(res => setSubject(res.data));
+    apiClient.get(`/api/subjects/${subjectId}`).then(res => setSubject(res.data));
   }, [subjectId]);
 
   if (!subject) return <div className="p-8">Loading...</div>;
