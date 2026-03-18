@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  progress  VideoProgress[]
+}
+
+model Subject {
+  id       Int       @id @default(autoincrement())
+  title    String
+  sections Section[]
+}
+
+model Section {
+  id        Int     @id @default(autoincrement())
+  title     String
+  subjectId Int
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  videos    Video[]
+}
+
+model Video {
+  id        Int      @id @default(autoincrement())
+  title     String
+  youtubeId String
+  sectionId Int
+  section   Section  @relation(fields: [sectionId], references: [id])
+  progress  VideoProgress[]
+}
+
+model VideoProgress {
+  id      Int  @id @default(autoincrement())
+  userId  Int
+  videoId Int
+  watched Boolean @default(false)
+
+  user  User  @relation(fields: [userId], references: [id])
+  video Video @relation(fields: [videoId], references: [id])
+}
