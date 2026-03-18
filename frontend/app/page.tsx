@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import apiClient from "@/lib/apiClient";
 import Link from "next/link";
 import { isLoggedIn } from "@/lib/auth";
+import Chatbot from "@/components/Chatbot";
 
 export default function HomePage() {
 
@@ -34,8 +35,6 @@ export default function HomePage() {
     return(
 
       <div className="min-h-screen pt-24 bg-gradient-to-br from-blue-600 to-yellow-300">
-
-        {/* HERO SECTION */}
 
         <div className="max-w-7xl mx-auto px-8 py-20 text-center text-white">
 
@@ -69,7 +68,7 @@ export default function HomePage() {
         </div>
 
 
-        {/* FEATURES SECTION */}
+        {/* FEATURES */}
 
         <div className="bg-white py-20">
 
@@ -84,30 +83,30 @@ export default function HomePage() {
               <div className="p-8 shadow-md rounded-xl">
                 <div className="text-5xl mb-4">🎥</div>
                 <h3 className="text-xl font-semibold mb-2">
-                  Structured Video Lessons
+                  Video Learning
                 </h3>
                 <p className="text-gray-600">
-                  Step-by-step learning through high quality course videos.
+                  Learn step by step through structured video lessons.
                 </p>
               </div>
 
               <div className="p-8 shadow-md rounded-xl">
                 <div className="text-5xl mb-4">📚</div>
                 <h3 className="text-xl font-semibold mb-2">
-                  Organized Course Content
+                  Organized Courses
                 </h3>
                 <p className="text-gray-600">
-                  Courses divided into sections to help you learn faster.
+                  Courses divided into sections for better understanding.
                 </p>
               </div>
 
               <div className="p-8 shadow-md rounded-xl">
                 <div className="text-5xl mb-4">🚀</div>
                 <h3 className="text-xl font-semibold mb-2">
-                  Practical Learning
+                  Real Skills
                 </h3>
                 <p className="text-gray-600">
-                  Build real skills and prepare for real world projects.
+                  Build practical knowledge through guided learning.
                 </p>
               </div>
 
@@ -117,30 +116,11 @@ export default function HomePage() {
 
         </div>
 
-
-        {/* CTA SECTION */}
-
-        <div className="bg-blue-600 py-16 text-center text-white">
-
-          <h2 className="text-3xl font-bold mb-6">
-            Start your learning journey today
-          </h2>
-
-          <Link
-            href="/register"
-            className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition"
-          >
-            Join SkillNest
-          </Link>
-
-        </div>
-
       </div>
 
     )
 
   }
-
 
   /* ---------- DASHBOARD ---------- */
 
@@ -205,6 +185,10 @@ export default function HomePage() {
         </div>
 
       </div>
+
+      {/* AI CHATBOT */}
+
+      <Chatbot />
 
     </div>
 
