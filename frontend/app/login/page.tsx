@@ -15,12 +15,11 @@ export default function LoginPage() {
       const res = await apiClient.post('/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.user.id);
-      router.push('/');
+      router.push('/subjects');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Login failed');
     }
   };
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-50">
       <form onSubmit={handleLogin} className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
