@@ -8,7 +8,7 @@ import { isLoggedIn } from "@/lib/auth";
 export default function HomePage() {
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
-  const [subjects, setSubjects] = useState([]);
+  const [subjects, setSubjects] = useState<any[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,34 +28,38 @@ export default function HomePage() {
   if (!loggedIn) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center pt-24">
-        <div className="max-w-6xl mx-auto px-8 py-20 text-center">
 
-          <h1 className="text-6xl font-bold mb-6">
+        <div className="max-w-5xl mx-auto text-center px-8">
+
+          <h1 className="text-6xl font-bold text-blue-600 mb-6">
             💻 SkillNest
           </h1>
 
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-            Learn programming, data science and modern tech skills through
-            structured video courses and hands-on learning.
+          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+            Learn programming, data science and modern technology skills through
+            structured video courses designed for practical learning.
           </p>
 
           <div className="flex gap-6 justify-center">
+
             <Link
               href="/register"
-              className="bg-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
             >
               Start Learning
             </Link>
 
             <Link
               href="/login"
-              className="border border-green-400 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-800 transition"
+              className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50 transition"
             >
               Login
             </Link>
+
           </div>
 
         </div>
+
       </div>
     );
   }
@@ -72,7 +76,7 @@ export default function HomePage() {
             Explore Courses
           </h1>
 
-          <p className="text-gray-400">
+          <p className="text-gray-600">
             Master new skills with structured learning paths
           </p>
         </div>
@@ -109,22 +113,21 @@ export default function HomePage() {
                       {subject.title}
                     </h2>
 
-                    <p className="text-gray-400 text-sm mb-4 flex-grow">
+                    <p className="text-gray-600 text-sm mb-4 flex-grow">
                       Learn key concepts and practical skills through
-                      structured lessons and projects.
+                      structured lessons and guided projects.
                     </p>
 
-                    <div className="text-sm text-gray-400 space-y-1 mb-5">
+                    <div className="text-sm text-gray-500 space-y-1 mb-5">
                       <div>⭐ {rating} rating</div>
                       <div>📖 {totalVideos} lessons</div>
                       <div>👥 {studentCount.toLocaleString()} students</div>
                       <div>
-                        ⏱ {Math.floor(totalDuration / 60)}h{" "}
-                        {totalDuration % 60}m
+                        ⏱ {Math.floor(totalDuration / 60)}h {totalDuration % 60}m
                       </div>
                     </div>
 
-                    <button className="bg-blue-600 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    <button className="bg-yellow-400 text-blue-900 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
                       Start Learning →
                     </button>
 
@@ -134,6 +137,7 @@ export default function HomePage() {
               </Link>
             );
           })}
+
         </div>
       </div>
     </div>
