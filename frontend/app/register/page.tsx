@@ -13,7 +13,7 @@ export default function RegisterPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await apiClient.post('/auth/register', { name, email, password });
+      await apiClient.post('/api/auth/register', { name, email, password });
       router.push('/login');
     } catch (err: any) {
       setError(err.response?.data?.error || 'Registration failed');
