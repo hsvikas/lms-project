@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function Chatbot() {
 
+  const [open,setOpen] = useState(false);
   const [messages,setMessages] = useState<any[]>([]);
   const [input,setInput] = useState("");
   const [loading,setLoading] = useState(false);
@@ -24,20 +25,17 @@ export default function Chatbot() {
         {
           method:"POST",
           headers:{
-            "Authorization":`Bearer ${process.env.NEXT_PUBLIC_HF_API_KEY}`,
+            Authorization:`Bearer ${process.env.NEXT_PUBLIC_HF_API_KEY}`,
             "Content-Type":"application/json"
           },
-          body:JSON.stringify({
-            inputs:input
-          })
+          body:JSON.stringify({inputs:userMessage.text})
         }
       );
 
       const data = await response.json();
 
       const botReply =
-        data?.[0]?.generated_text ||
-        "Sorry I could not answer that.";
+        data?.[0]?.generated_text || "Sorry I couldn't answer.";
 
       setMessages(prev=>[
         ...prev,
@@ -48,57 +46,69 @@ export default function Chatbot() {
 
       setMessages(prev=>[
         ...prev,
-        {role:"bot",text:"Error connecting to AI"}
+        {role:"bot",text:"AI error"}
       ]);
 
     }
 
     setLoading(false);
+
   };
 
   return(
+    <>
+    
+      {open && (
 
-    <div className="fixed bottom-6 right-6 w-80 bg-white shadow-xl rounded-xl p-4 border">
+        <div className="fixed bottom-20 right-6 w-72 bg-white shadow-xl rounded-xl border">
 
-      <h2 className="font-bold text-blue-600 mb-2">
-        SkillNest AI
-      </h2>
-
-      <div className="h-60 overflow-y-auto text-sm mb-2 space-y-2">
-
-        {messages.map((m,i)=>(
-          <div key={i}
-            className={
-              m.role==="user"
-                ?"text-right"
-                :"text-left"
-            }
-          >
-            <p className="bg-gray-100 inline-block px-3 py-2 rounded">
-              {m.text}
-            </p>
+          <div className="bg-blue-600 text-white px-4 py-2 rounded-t-xl font-semibold">
+            SkillNest AI
           </div>
-        ))}
 
-        {loading && <p className="text-gray-500">AI typing...</p>}
+          <div className="h-52 overflow-y-auto p-3 text-sm space-y-2">
 
-      </div>
+            {messages.map((m,i)=>(
+              <div key={i} className={m.role==="user"?"text-right":"text-left"}>
+                <span className="bg-gray-100 px-3 py-2 rounded inline-block">
+                  {m.text}
+                </span>
+              </div>
+            ))}
 
-      <input
-        value={input}
-        onChange={(e)=>setInput(e.target.value)}
-        placeholder="Ask something..."
-        className="border p-2 w-full rounded"
-      />
+            {loading && <p className="text-gray-500">AI typing...</p>}
+
+          </div>
+
+          <div className="p-3 border-t">
+
+            <input
+              value={input}
+              onChange={(e)=>setInput(e.target.value)}
+              placeholder="Ask something..."
+              className="border p-2 w-full rounded text-sm"
+            />
+
+            <button
+              onClick={sendMessage}
+              className="bg-yellow-400 text-blue-900 w-full mt-2 py-2 rounded font-semibold"
+            >
+              Send
+            </button>
+
+          </div>
+
+        </div>
+
+      )}
 
       <button
-        onClick={sendMessage}
-        className="bg-yellow-400 text-blue-900 w-full mt-2 py-2 rounded font-semibold"
+        onClick={()=>setOpen(!open)}
+        className="fixed bottom-6 right-6 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg text-xl flex items-center justify-center hover:bg-blue-700"
       >
-        Send
+        💬
       </button>
 
-    </div>
-
+    </>
   );
 }
