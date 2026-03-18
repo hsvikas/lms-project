@@ -1,57 +1,61 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import apiClient from "@/lib/apiClient";
 import Link from "next/link";
 import { isLoggedIn } from "@/lib/auth";
 
 export default function HomePage() {
-  const router = useRouter();
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [subjects, setSubjects] = useState<any[]>([]);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  const [loggedIn,setLoggedIn] = useState(false);
+  const [subjects,setSubjects] = useState<any[]>([]);
+  const [mounted,setMounted] = useState(false);
+
+  useEffect(()=>{
     setMounted(true);
+
     const logged = isLoggedIn();
     setLoggedIn(logged);
 
-    if (logged) {
-      apiClient.get("/api/subjects").then((res) => setSubjects(res.data));
+    if(logged){
+      apiClient.get("/api/subjects").then(res=>{
+        setSubjects(res.data);
+      });
     }
-  }, []);
 
-  if (!mounted) return null;
+  },[]);
 
-  /* -------- LANDING PAGE -------- */
+  if(!mounted) return null;
 
-  if (!loggedIn) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center pt-24">
+  /* ---------- LANDING PAGE ---------- */
 
-        <div className="max-w-5xl mx-auto text-center px-8">
+  if(!loggedIn){
+    return(
 
-          <h1 className="text-6xl font-bold text-blue-600 mb-6">
+      <div className="min-h-screen pt-24 flex items-center justify-center bg-gradient-to-br from-blue-500 via-blue-600 to-yellow-300">
+
+        <div className="text-center px-8 max-w-4xl">
+
+          <h1 className="text-6xl font-bold text-white mb-6">
             💻 SkillNest
           </h1>
 
-          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-            Learn programming, data science and modern technology skills through
-            structured video courses designed for practical learning.
+          <p className="text-lg text-white mb-10">
+            Learn programming, data science and modern tech skills through
+            structured video courses and practical learning.
           </p>
 
           <div className="flex gap-6 justify-center">
 
             <Link
               href="/register"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+              className="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition"
             >
               Start Learning
             </Link>
 
             <Link
               href="/login"
-              className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50 transition"
+              className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition"
             >
               Login
             </Link>
@@ -61,70 +65,54 @@ export default function HomePage() {
         </div>
 
       </div>
-    );
+
+    )
   }
 
-  /* -------- DASHBOARD -------- */
+  /* ---------- DASHBOARD ---------- */
 
-  return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+  return(
+
+    <div className="min-h-screen pt-24 bg-gray-50">
 
       <div className="max-w-7xl mx-auto px-8 py-16">
 
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-blue-600 mb-3">
-            Explore Courses
-          </h1>
-
-          <p className="text-gray-600">
-            Master new skills with structured learning paths
-          </p>
-        </div>
+        <h1 className="text-4xl font-bold text-blue-600 mb-12">
+          Explore Courses
+        </h1>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {subjects.map((subject: any) => {
+          {subjects.map((subject:any)=>{
 
             const totalVideos =
               subject.sections?.reduce(
-                (acc: number, section: any) =>
-                  acc + (section.videos?.length || 0),
-                0
-              ) || 0;
+                (acc:number,section:any)=>
+                  acc+(section.videos?.length||0),0
+              )||0;
 
-            const totalDuration = Math.floor(totalVideos * 45);
-            const studentCount = Math.floor(Math.random() * 50000) + 1000;
-            const rating = (Math.random() * 1 + 4.5).toFixed(1);
+            return(
 
-            return (
               <Link key={subject.id} href={`/subjects/${subject.id}`}>
 
-                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col">
+                <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition flex flex-col overflow-hidden">
 
-                  {/* Thumbnail */}
-                  <div className="h-44 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-5xl text-white">
+                  <div className="h-40 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-4xl">
                     📚
                   </div>
 
-                  {/* Content */}
                   <div className="p-6 flex flex-col flex-grow">
 
-                    <h2 className="text-xl font-bold mb-2 text-blue-600">
+                    <h2 className="text-xl font-bold text-blue-600 mb-2">
                       {subject.title}
                     </h2>
 
                     <p className="text-gray-600 text-sm mb-4 flex-grow">
-                      Learn key concepts and practical skills through
-                      structured lessons and guided projects.
+                      Structured lessons and practical learning.
                     </p>
 
-                    <div className="text-sm text-gray-500 space-y-1 mb-5">
-                      <div>⭐ {rating} rating</div>
-                      <div>📖 {totalVideos} lessons</div>
-                      <div>👥 {studentCount.toLocaleString()} students</div>
-                      <div>
-                        ⏱ {Math.floor(totalDuration / 60)}h {totalDuration % 60}m
-                      </div>
+                    <div className="text-sm text-gray-500 mb-4">
+                      📖 {totalVideos} lessons
                     </div>
 
                     <button className="bg-yellow-400 text-blue-900 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
@@ -132,14 +120,21 @@ export default function HomePage() {
                     </button>
 
                   </div>
+
                 </div>
 
               </Link>
-            );
+
+            )
+
           })}
 
         </div>
+
       </div>
+
     </div>
-  );
+
+  )
+
 }
