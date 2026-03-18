@@ -27,7 +27,7 @@ export default function HomePage() {
 
   if (!loggedIn) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black text-white flex items-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center pt-24">
         <div className="max-w-6xl mx-auto px-8 py-20 text-center">
 
           <h1 className="text-6xl font-bold mb-6">
@@ -63,7 +63,7 @@ export default function HomePage() {
   /* -------- DASHBOARD -------- */
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-50 pt-24">
 
       <div className="max-w-7xl mx-auto px-8 py-16">
 
@@ -95,10 +95,10 @@ export default function HomePage() {
             return (
               <Link key={subject.id} href={`/subjects/${subject.id}`}>
 
-                <div className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition flex flex-col">
+                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col">
 
                   {/* Thumbnail */}
-                  <div className="h-44 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center text-5xl">
+                  <div className="h-44 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-5xl text-white">
                     📚
                   </div>
 
