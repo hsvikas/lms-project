@@ -21,15 +21,15 @@ export default function SubjectPage() {
 
   if (!subject)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-800">
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 text-lg">
         Loading course...
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+  <div className="min-h-screen pt-28 bg-gradient-to-br from-blue-600 to-yellow-300">
 
-      <div className="max-w-6xl mx-auto px-10 py-12">
+      <div className="max-w-6xl mx-auto px-6 py-10 bg-white rounded-xl shadow-lg">
 
         {/* Course Title */}
         <h1 className="text-4xl font-bold text-blue-600 mb-4">
@@ -37,18 +37,18 @@ export default function SubjectPage() {
         </h1>
 
         {/* Description */}
-        <p className="text-gray-300 text-lg mb-10">
+        <p className="text-gray-700 text-lg mb-10 max-w-3xl">
           {subject.description ||
             "Master this course step by step with guided video lessons."}
         </p>
 
         {/* What you will learn */}
-        <div className="bg-gray-50 p-6 rounded-xl mb-10">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-300">
+        <div className="bg-gray-50 p-6 rounded-xl shadow border mb-10">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-600">
             What you will learn
           </h2>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700">
             <li>✔ Understand core concepts clearly</li>
             <li>✔ Build real-world coding skills</li>
             <li>✔ Practice with structured video lessons</li>
@@ -58,16 +58,16 @@ export default function SubjectPage() {
 
         {/* Course Content */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6 text-blue-300">
+          <h2 className="text-2xl font-semibold mb-6 text-blue-600">
             Course Content
           </h2>
 
           {subject.sections.map((section: any) => (
             <div
               key={section.id}
-              className="bg-gray-50 rounded-xl p-6 mb-6"
+              className="bg-white rounded-xl p-6 mb-6 shadow border"
             >
-              <h3 className="text-xl font-semibold mb-4">
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
                 {section.title}
               </h3>
 
@@ -77,7 +77,7 @@ export default function SubjectPage() {
                   <li key={video.id}>
                     <Link
                       href={`/subjects/${subjectId}/video/${video.id}`}
-                      className="block p-3 bg-gray-700 rounded hover:bg-blue-600 transition"
+                      className="block p-3 bg-gray-100 rounded hover:bg-blue-600 hover:text-white transition"
                     >
                       🎬 {video.title}
                     </Link>
