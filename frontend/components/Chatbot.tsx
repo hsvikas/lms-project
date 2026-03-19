@@ -68,7 +68,7 @@ export default function Chatbot() {
       {open && (
         <div className="fixed bottom-20 right-6 w-80 bg-white shadow-2xl rounded-xl border z-[9999]">
 
-          <div className="bg-blue-600 text-white px-4 py-2 rounded-t-xl font-semibold">
+          <div className="bg-blue-600 text-gray-800 px-4 py-2 rounded-t-xl font-semibold">
             SkillNest AI
           </div>
 
@@ -109,7 +109,7 @@ export default function Chatbot() {
 
       <button
         onClick={()=>setOpen(!open)}
-        className="fixed bottom-6 right-6 z-[9999] bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-blue-700"
+        className="fixed bottom-6 right-6 z-[9999] bg-blue-600 text-gray-800 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-blue-700"
       >
         💬
       </button>

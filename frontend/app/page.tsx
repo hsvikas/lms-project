@@ -20,7 +20,7 @@ export default function HomePage() {
 
     <div className="min-h-screen pt-24 bg-gradient-to-br from-blue-600 to-yellow-300">
 
-      <div className="max-w-7xl mx-auto px-8 py-20 text-center text-white">
+      <div className="max-w-7xl mx-auto px-8 py-20 text-center text-gray-800">
 
         <h1 className="text-6xl font-bold mb-6">
           💻 SkillNest

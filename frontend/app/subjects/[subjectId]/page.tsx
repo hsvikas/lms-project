@@ -27,7 +27,7 @@ export default function SubjectPage() {
     );
 
   return (
-    <div className="min-h-screen bg-white text-white">
+    <div className="min-h-screen bg-white text-gray-800">
 
       <div className="max-w-6xl mx-auto px-10 py-12">
 

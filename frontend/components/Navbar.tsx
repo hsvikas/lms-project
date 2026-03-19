@@ -23,7 +23,7 @@ export default function Navbar() {
   if (!mounted) return null;
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-lg">
+    <nav className="fixed top-0 left-0 w-full bg-blue-600 text-gray-800 shadow-lg">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
 
         {/* Logo */}

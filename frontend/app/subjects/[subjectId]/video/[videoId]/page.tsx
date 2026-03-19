@@ -72,7 +72,7 @@ export default function VideoPage() {
             ← Previous
           </button>
 
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+          <button className="bg-blue-600 text-gray-800 px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
             Next →
           </button>
 
