@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { isLoggedIn } from "@/lib/auth";
 
 export default function Chatbot() {
 
@@ -7,6 +8,14 @@ export default function Chatbot() {
   const [messages,setMessages] = useState<any[]>([]);
   const [input,setInput] = useState("");
   const [loading,setLoading] = useState(false);
+  const [show,setShow] = useState(false);
+
+  // 👉 Show chatbot ONLY after login
+  useEffect(()=>{
+    setShow(isLoggedIn());
+  },[]);
+
+  if(!show) return null;
 
   const sendMessage = async () => {
 
@@ -35,7 +44,7 @@ export default function Chatbot() {
       const data = await response.json();
 
       const botReply =
-        data?.[0]?.generated_text || "Sorry I couldn't answer.";
+        data?.[0]?.generated_text || "Try again...";
 
       setMessages(prev=>[
         ...prev,
@@ -58,9 +67,10 @@ export default function Chatbot() {
   return(
     <>
     
+      {/* CHAT WINDOW */}
       {open && (
 
-        <div className="fixed bottom-20 right-6 w-72 bg-white shadow-xl rounded-xl border">
+        <div className="fixed bottom-20 right-6 w-72 bg-white shadow-xl rounded-xl border z-50">
 
           <div className="bg-blue-600 text-white px-4 py-2 rounded-t-xl font-semibold">
             SkillNest AI
@@ -102,9 +112,10 @@ export default function Chatbot() {
 
       )}
 
+      {/* CHAT BUTTON */}
       <button
         onClick={()=>setOpen(!open)}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg text-xl flex items-center justify-center hover:bg-blue-700"
+        className="fixed bottom-6 right-6 z-50 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg text-xl flex items-center justify-center hover:bg-blue-700"
       >
         💬
       </button>

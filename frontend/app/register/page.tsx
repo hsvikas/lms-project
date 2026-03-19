@@ -21,7 +21,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-700 via-blue-600 to-yellow-300 overflow-hidden">
 
       {/* floating emojis */}
       <div className="absolute text-5xl opacity-20 top-10 left-10">💻</div>

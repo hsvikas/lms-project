@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import Chatbot from '@/components/Chatbot';
 
 export const metadata = {
   title: 'SkillForge Learning - Learn Skills Through Video Courses',
