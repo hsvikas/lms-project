@@ -8,31 +8,31 @@ export default function ProgressBar({
   onMarkWatched: () => void;
 }) {
   return (
-    <div className="mt-6">
+    <div>
 
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-gray-300 font-medium">Lesson Progress</span>
+      {/* Title */}
+      <h3 className="!text-gray-900 font-semibold mb-2">
+        Lesson Progress
+      </h3>
 
-        {watched && (
-          <span className="text-blue-600 font-semibold">
-            Completed ✓
-          </span>
-        )}
-      </div>
-
-      {/* Progress bar */}
-      <div className="w-full bg-gray-700 rounded-full h-3 mb-4">
+      {/* Progress Bar */}
+      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden mb-4">
         <div
-          className={`h-3 rounded-full transition-all ${
-            watched ? "bg-blue-500 w-full" : "bg-yellow-400 w-1/4"
+          className={`h-full ${
+            watched ? "bg-yellow-400 w-full" : "bg-yellow-400 w-1/3"
           }`}
-        ></div>
+        />
       </div>
 
-      {!watched && (
+      {/* Button */}
+      {watched ? (
+        <div className="text-green-600 font-bold">
+          ✔ Completed
+        </div>
+      ) : (
         <button
           onClick={onMarkWatched}
-          className="bg-yellow-400 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition"
+          className="bg-yellow-400 text-blue-900 px-4 py-2 rounded font-semibold hover:bg-yellow-300 transition"
         >
           Mark as Watched
         </button>
