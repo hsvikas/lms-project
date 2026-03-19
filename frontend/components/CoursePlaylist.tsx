@@ -11,33 +11,34 @@ export default function CoursePlaylist({
   currentVideoId: string;
 }) {
   return (
-    <div className="mt-10 bg-gray-50 rounded-xl p-6">
+    <div>
 
-      <h2 className="text-2xl font-bold mb-6 text-blue-600">
+      <h2 className="text-xl font-bold text-blue-700 mb-4">
         📚 Course Playlist
       </h2>
 
       {sections.map((section) => (
         <div key={section.id} className="mb-6">
 
-          {/* Section Title */}
-          <h3 className="font-semibold text-gray-200 mb-3">
+          <h3 className="font-semibold text-gray-900 mb-3">
             {section.title}
           </h3>
 
           <ul className="space-y-2">
 
             {section.videos.map((video: any) => {
-              const isCurrent = video.id.toString() === currentVideoId;
+
+              const isActive =
+                String(video.id) === String(currentVideoId);
 
               return (
                 <li key={video.id}>
                   <Link
                     href={`/subjects/${subjectId}/video/${video.id}`}
-                    className={`block px-4 py-2 rounded-lg transition ${
-                      isCurrent
-                        ? "bg-blue-600 text-gray-800"
-                        : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    className={`block px-4 py-3 rounded-lg font-semibold transition ${
+                      isActive
+                        ? "bg-blue-600 !text-white shadow-lg"
+                        : "bg-gray-100 !text-gray-900 hover:bg-blue-100"
                     }`}
                   >
                     🎬 {video.title}
@@ -47,8 +48,10 @@ export default function CoursePlaylist({
             })}
 
           </ul>
+
         </div>
       ))}
+
     </div>
   );
 }
