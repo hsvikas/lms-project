@@ -14,10 +14,10 @@ export default function SubjectsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black p-10">
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-yellow-300">
 
       {/* Header */}
-      <h1 className="text-4xl font-bold text-white mb-10 text-center">
+      <h1 className="text-4xl font-bold text-gray-800 mb-10 text-center">
         Explore Courses on <span className="text-blue-600">SkillNest</span>
       </h1>
 
@@ -35,7 +35,7 @@ export default function SubjectsPage() {
               </div>
 
               {/* Course title */}
-              <h2 className="text-2xl font-bold text-green-700 mb-2">
+              <h2 className="text-2xl font-bold text-yellow-600 mb-2">
                 {subject.title}
               </h2>
 

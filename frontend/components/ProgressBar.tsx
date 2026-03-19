@@ -24,7 +24,7 @@ export default function ProgressBar({
       <div className="w-full bg-gray-700 rounded-full h-3 mb-4">
         <div
           className={`h-3 rounded-full transition-all ${
-            watched ? "bg-green-500 w-full" : "bg-yellow-400 w-1/4"
+            watched ? "bg-blue-500 w-full" : "bg-yellow-400 w-1/4"
           }`}
         ></div>
       </div>

@@ -11,7 +11,7 @@ export default function CoursePlaylist({
   currentVideoId: string;
 }) {
   return (
-    <div className="mt-10 bg-gray-800 rounded-xl p-6">
+    <div className="mt-10 bg-gray-50 rounded-xl p-6">
 
       <h2 className="text-2xl font-bold mb-6 text-blue-600">
         📚 Course Playlist

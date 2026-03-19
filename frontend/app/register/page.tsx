@@ -53,7 +53,7 @@ export default function RegisterPage() {
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
+          className="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
           required
         />
 
@@ -62,7 +62,7 @@ export default function RegisterPage() {
           placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
+          className="w-full mb-4 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
           required
         />
 
@@ -71,7 +71,7 @@ export default function RegisterPage() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full mb-6 p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
+          className="w-full mb-6 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
           required
         />
 

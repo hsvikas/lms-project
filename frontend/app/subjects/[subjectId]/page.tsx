@@ -21,13 +21,13 @@ export default function SubjectPage() {
 
   if (!subject)
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+      <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-800">
         Loading course...
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-white text-white">
 
       <div className="max-w-6xl mx-auto px-10 py-12">
 
@@ -43,8 +43,8 @@ export default function SubjectPage() {
         </p>
 
         {/* What you will learn */}
-        <div className="bg-gray-800 p-6 rounded-xl mb-10">
-          <h2 className="text-2xl font-semibold mb-4 text-green-300">
+        <div className="bg-gray-50 p-6 rounded-xl mb-10">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-300">
             What you will learn
           </h2>
 
@@ -58,14 +58,14 @@ export default function SubjectPage() {
 
         {/* Course Content */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6 text-green-300">
+          <h2 className="text-2xl font-semibold mb-6 text-blue-300">
             Course Content
           </h2>
 
           {subject.sections.map((section: any) => (
             <div
               key={section.id}
-              className="bg-gray-800 rounded-xl p-6 mb-6"
+              className="bg-gray-50 rounded-xl p-6 mb-6"
             >
               <h3 className="text-xl font-semibold mb-4">
                 {section.title}
